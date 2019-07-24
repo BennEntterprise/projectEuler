@@ -1,0 +1,27 @@
+{
+  "name": "projecteuler",
+  "version": "1.0.0",
+  "description": "\"A collection of solutions to the problems posted on Project Euler\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BennEntterprise/projectEuler.git"
+  },
+  "keywords": [
+    "algorithm",
+    "algorithms",
+    "euler"
+  ],
+  "author": "Kyle Bennett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BennEntterprise/projectEuler/issues"
+  },
+  "homepage": "https://github.com/BennEntterprise/projectEuler#readme",
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  }
+}
