@@ -9,35 +9,50 @@
 //    8,640,000ms in one day
 //    60,480,000ms in one week.
 //    3,144,960,000ms in one year.
+//  So this cannot be solved by brute force.
 
 
-//// NOTE: This method will work, but it will take very long. So I will be revisiting this utilizing a new method.
-//TODO:PRIME FACTORIZATION DECONSTRUCTION TECHNIQUE are unique. Therefore,
-//if I can make our objective prime a smaller prime by dividing it by a prime,
+//I can make our objective prime a smaller prime by dividing it by a prime,
 //my algorithm will not have to run as many while loops. If if I can make our
 //objective number smaller by a few magnitudes then I will be able to process this algorithm much quicker.
-
-
+//This is built on the
 
 const helperFunctions = require('./helperFunctions');
 const createPrimesList = helperFunctions.createPrimesList;
 const primesDeconstruction = helperFunctions.primesDeconstruction;
 
 
+// Get process.stdin as the standard input object.
+var standard_input = process.stdin;
+standard_input.setEncoding('utf-8');
+
+
 function main(){
-  let objectiveNumber = 600851475143;
-  // let setOfPrimes = createPrimesList(objectiveNumber/2);
+  console.log("What number would you like to have a prime Deconstruction with?");
+  // When user input data and click enter key.
+  standard_input.on('data', function (data) {
+      // User input exit.
+      if(data === 'exit\n'){
+          // Program exit.
+          console.log("User input complete, program exit.");
+          process.exit();
+      }else
+      {
+        runProgram(data);
+        process.exit();
+      }
+  });
+}
+
+function runProgram(userInput){
+  let objectiveNumber = userInput;
   let primeFactorizationList = primesDeconstruction(objectiveNumber);
   let largestP = primeFactorizationList[primeFactorizationList.length -1];
 
   // If there is a prime that fan 'fit' (%==0) then this is the largest prime.
-  console.log(`The largest prime factor of the objectiveNumber (${objectiveNumber}) is: ${largestP}`);
-  console.log('......................................')
-  console.log(`The Deconstruction is ${primeFactorizationList}`)
-
-
-
+  console.log(`The largest prime factor of the ${objectiveNumber} is: ${largestP}`);
+  console.log('......................................');
+  console.log(`The Deconstruction is ${primeFactorizationList}`);
 }
-
 
 main();
